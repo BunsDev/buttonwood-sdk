@@ -102,7 +102,7 @@ export class Bond {
     }
 
     get startDate(): BigNumber {
-        return this.data.startDate;
+        return BigNumber.from(this.data.startDate);
     }
 
     get maturityDate(): BigNumber {
