@@ -26,6 +26,7 @@ export interface TokenData {
 
 export interface BondData {
     id: string;
+    startDate: BigNumberish;
     maturityDate: BigNumberish;
     maturedDate: BigNumberish | null;
     collateral: TokenData;
@@ -98,6 +99,10 @@ export class Bond {
         return this.data.depositLimit
             ? BigNumber.from(this.data.depositLimit)
             : BigNumber.from(0);
+    }
+
+    get startDate(): BigNumber {
+        return BigNumber.from(this.data.startDate);
     }
 
     get maturityDate(): BigNumber {

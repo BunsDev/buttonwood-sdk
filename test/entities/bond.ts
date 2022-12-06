@@ -36,6 +36,7 @@ function getBondData({
     const address = '0x8feb0797217962c517fac6da4f8667cc000129ff';
     return {
         id: address,
+        startDate: '1630432337',
         maturityDate: '1630532337',
         maturedDate: isMature ? '1630532337' : '0',
         collateral: {
@@ -120,6 +121,12 @@ describe('Bond', () => {
                 bondData.totalDebt.toString(),
             ),
         );
+    });
+
+    it('Fetches bond start date', () => {
+        const bondData = getBondData({});
+        const bond = new Bond(bondData);
+        expect(bond.startDate).toEqual(BigNumber.from(bondData.startDate));
     });
 
     it('Fetches bond mature', () => {
