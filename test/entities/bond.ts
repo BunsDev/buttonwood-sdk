@@ -123,6 +123,12 @@ describe('Bond', () => {
         );
     });
 
+    it('Fetches bond start date', () => {
+        const bondData = getBondData({});
+        const bond = new Bond(bondData);
+        expect(bond.startDate).toEqual(BigNumber.from(bondData.startDate));
+    });
+
     it('Fetches bond mature', () => {
         const bondData = getBondData({});
         const bond = new Bond(bondData);
