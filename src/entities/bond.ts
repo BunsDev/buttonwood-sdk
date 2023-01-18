@@ -67,7 +67,7 @@ export class Bond {
     }
 
     get creator(): string {
-        return this.creator;
+        return this.data.creator;
     }
 
     get totalDebt(): BigNumber {
