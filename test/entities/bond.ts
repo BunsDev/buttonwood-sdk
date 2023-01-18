@@ -34,8 +34,10 @@ function getBondData({
     isMature = false,
 }): BondData {
     const address = '0x8feb0797217962c517fac6da4f8667cc000129ff';
+    const creator = '0x53462c34c2da0ac7cf391e305327f2c566d40d8d';
     return {
         id: address,
+        creator,
         startDate: '1630432337',
         maturityDate: '1630532337',
         maturedDate: isMature ? '1630532337' : '0',
@@ -90,6 +92,12 @@ describe('Bond', () => {
         const bondData = getBondData({});
         const bond = new Bond(bondData);
         expect(bond.address).toEqual(bondData.id);
+    });
+
+    it('Fetches bond creator address', () => {
+        const bondData = getBondData({});
+        const bond = new Bond(bondData);
+        expect(bond.creator).toEqual(bondData.creator);
     });
 
     it('Fetches bond total debt', () => {
