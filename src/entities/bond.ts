@@ -26,6 +26,7 @@ export interface TokenData {
 
 export interface BondData {
     id: string;
+    creator: string;
     startDate: BigNumberish;
     maturityDate: BigNumberish;
     maturedDate: BigNumberish | null;
@@ -63,6 +64,10 @@ export class Bond {
 
     get address(): string {
         return this.data.id;
+    }
+
+    get creator(): string {
+        return this.data.creator;
     }
 
     get totalDebt(): BigNumber {
